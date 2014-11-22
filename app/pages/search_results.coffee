@@ -7,4 +7,4 @@ module.exports =
     this.client.assert.containsText this.selectors.resultDiv, text
 
   navImages: ->
-    this.client.click this.selectors.navImages;
+    this.client.click this.selectors.navImages

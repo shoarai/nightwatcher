@@ -1,18 +1,17 @@
-path = require('path');
+path = require 'path'
 
-module.exports = {
-  tags: ['sanity', 'search'],
+module.exports =
+  tags: ['sanity', 'search']
 
   'Bing search from homepage': (client) ->
-    require('nightwatch-pages')(client, path.resolve(__dirname, '..', 'pages'));
+    require('nightwatch-pages')(client, path.resolve(__dirname, '..', 'pages'))
 
-    searchTerm = 'selenium';
+    searchTerm = 'selenium'
 
     client
       .page.homepage.load()
-      .page.homepage.search(searchTerm)
-      .page.search_results.assertResults(searchTerm)
+      .page.homepage.search searchTerm
+      .page.search_results.assertResults searchTerm
       .page.search_results.navImages()
-      .saveScreenshot('./results/screenshots/screen2.png')
+      .saveScreenshot './results/screenshots/screen2.png'
       .end()
-}

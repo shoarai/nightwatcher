@@ -1,12 +1,6 @@
 # 'use strict';
 module.exports = (grunt) ->
   grunt.initConfig
-    watch:
-      coffee:
-        tasks: ['uglify', 'coffee']
-        files: ['app/*/*.coffee']
-#      tasks:
-#        tasks: 'nightwatch'
     coffee:
       tests:
         files: [ 
@@ -41,12 +35,21 @@ module.exports = (grunt) ->
           dest: 'pages/'
           ext: '.js'
         ]
+    clean:
+      tmp: 'js'
+    watch:
+      coffee:
+        tasks: ['coffee', 'uglify', 'clean']
+        files: ['app/*/*.coffee']
+#      tasks:
+#        tasks: 'nightwatch'
           
 #    nightwatch:
 #      options: {}
   
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-uglify'
+  grunt.loadNpmTasks 'grunt-contrib-clean'
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-nightwatch'
   grunt.registerTask 'default', 'watch'

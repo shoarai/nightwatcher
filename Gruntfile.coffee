@@ -52,5 +52,6 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-clean'
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-nightwatch'
-  grunt.registerTask 'default', 'watch'
+  grunt.registerTask 'default', ['coffee','uglify','clean', 'watch']
+  grunt.registerTask 'build', ['coffee','uglify','clean']
 #  grunt.registerTask 'default' ['nightwatch']
